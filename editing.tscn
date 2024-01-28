@@ -1,0 +1,205 @@
+[gd_scene load_steps=3 format=3 uid="uid://b80qe5m2jtjtd"]
+
+[ext_resource type="Script" path="res://editing.gd" id="1_4sqvy"]
+[ext_resource type="Theme" uid="uid://cah8h1v3ndmi8" path="res://optioncheck.tres" id="1_gwwqw"]
+
+[node name="Editing" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4sqvy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="problem" type="TextEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+placeholder_text = "問題"
+
+[node name="A" type="TextEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "正解"
+
+[node name="B" type="TextEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "B"
+
+[node name="C" type="TextEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "C"
+
+[node name="D" type="TextEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "D"
+
+[node name="explain" type="TextEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+placeholder_text = "詳解"
+
+[node name="Tag" type="TextEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "TAG:"
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="problem_show" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+bbcode_enabled = true
+
+[node name="A" type="CheckBox" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_gwwqw")
+
+[node name="B" type="CheckBox" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_gwwqw")
+
+[node name="C" type="CheckBox" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_gwwqw")
+
+[node name="D" type="CheckBox" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_gwwqw")
+
+[node name="explain" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+bbcode_enabled = true
+
+[node name="tag" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="prev_question" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "上一題"
+
+[node name="next_question" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "下一題"
+
+[node name="add_question" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "新增問題"
+
+[node name="del_question" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "刪除問題"
+
+[node name="select_problem" type="OptionButton" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DATABASENAME" type="TextEdit" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "TITLE"
+
+[node name="save_question" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "儲存並退出"
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/VBoxContainer/problem" to="." method="_on_problem_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/VBoxContainer/A" to="." method="_on_a_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/VBoxContainer/B" to="." method="_on_b_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/VBoxContainer/C" to="." method="_on_c_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/VBoxContainer/D" to="." method="_on_d_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/VBoxContainer/explain" to="." method="_on_explain_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/VBoxContainer/Tag" to="." method="_on_tag_text_changed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/VBoxContainer2/A" to="." method="_on_a_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/VBoxContainer2/B" to="." method="_on_b_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/VBoxContainer2/C" to="." method="_on_c_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/VBoxContainer2/D" to="." method="_on_d_toggled"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/prev_question" to="." method="_on_prev_question_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/next_question" to="." method="_on_next_question_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/add_question" to="." method="_on_add_question_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/del_question" to="." method="_on_del_question_pressed"]
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer2/select_problem" to="." method="_on_select_problem_item_selected"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer2/DATABASENAME" to="." method="_on_databasename_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/save_question" to="." method="_on_save_question_pressed"]

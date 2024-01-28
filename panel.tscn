@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://damihi2qt2cx2"]
+
+[ext_resource type="Script" path="res://panel.gd" id="1_8368i"]
+[ext_resource type="PackedScene" uid="uid://b80qe5m2jtjtd" path="res://editing.tscn" id="1_wd76q"]
+[ext_resource type="PackedScene" uid="uid://b87chxl7cn5qn" path="res://quizing.tscn" id="2_tsitw"]
+[ext_resource type="PackedScene" uid="uid://dbro15uqpebhp" path="res://selecting.tscn" id="3_fuw2q"]
+[ext_resource type="PackedScene" uid="uid://bibjx3pmhr56f" path="res://create_quiz.tscn" id="4_ce7eu"]
+[ext_resource type="PackedScene" uid="uid://b37vg0jsp5ou5" path="res://review.tscn" id="6_c45ho"]
+
+[sub_resource type="Theme" id="Theme_t45xd"]
+default_font_size = 36
+
+[node name="Panel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_t45xd")
+script = ExtResource("1_8368i")
+
+[node name="Editing" parent="." instance=ExtResource("1_wd76q")]
+visible = false
+
+[node name="Control" parent="." instance=ExtResource("2_tsitw")]
+visible = false
+layout_mode = 1
+
+[node name="Selecting" parent="." instance=ExtResource("3_fuw2q")]
+layout_mode = 1
+
+[node name="CreateQuiz" parent="." instance=ExtResource("4_ce7eu")]
+visible = false
+layout_mode = 1
+
+[node name="quizing" parent="." instance=ExtResource("2_tsitw")]
+visible = false
+layout_mode = 1
+
+[node name="review" parent="." instance=ExtResource("6_c45ho")]
+visible = false
+layout_mode = 1
+
+[connection signal="selecting" from="Editing" to="." method="_on_editing_selecting"]
+[connection signal="adding" from="Selecting" to="." method="_on_selecting_adding"]
+[connection signal="editing" from="Selecting" to="." method="_on_selecting_editing"]
+[connection signal="testing" from="Selecting" to="." method="_on_selecting_testing"]
+[connection signal="start_test" from="CreateQuiz" to="." method="_on_create_quiz_start_test"]
+[connection signal="finish" from="quizing" to="." method="_on_quizing_finish"]
+[connection signal="finish_review" from="review" to="." method="_on_review_finish_review"]

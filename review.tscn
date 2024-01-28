@@ -1,0 +1,254 @@
+[gd_scene load_steps=6 format=3 uid="uid://b37vg0jsp5ou5"]
+
+[ext_resource type="Script" path="res://review.gd" id="1_5oqtk"]
+[ext_resource type="Theme" uid="uid://cah8h1v3ndmi8" path="res://optioncheck.tres" id="1_vbbjm"]
+[ext_resource type="Theme" uid="uid://04tg7db14obd" path="res://red.tres" id="3_hn0xd"]
+[ext_resource type="Theme" uid="uid://d0pdympk7k04l" path="res://green.tres" id="4_3768q"]
+[ext_resource type="Theme" uid="uid://3chyfdxrrieq" path="res://blue.tres" id="5_xfxtn"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5oqtk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 12.09
+alignment = 1
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Test_info" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="cur" type="Label" parent="HBoxContainer/VBoxContainer/Test_info"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "目前題目: "
+
+[node name="count" type="Label" parent="HBoxContainer/VBoxContainer/Test_info"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "總共題數: "
+
+[node name="answered" type="Label" parent="HBoxContainer/VBoxContainer/Test_info"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "答對題數"
+
+[node name="unanswered" type="Label" parent="HBoxContainer/VBoxContainer/Test_info"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "答錯題數"
+
+[node name="time" type="Label" parent="HBoxContainer/VBoxContainer/Test_info"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "時間"
+
+[node name="View_stat" type="Button" parent="HBoxContainer/VBoxContainer/Test_info"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "看狀態"
+
+[node name="question" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer/question"]
+layout_mode = 2
+
+[node name="problem" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/question"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+bbcode_enabled = true
+text = "HI
+
+"
+fit_content = true
+
+[node name="A" type="CheckBox" parent="HBoxContainer/VBoxContainer/question"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_vbbjm")
+text = "A"
+
+[node name="B" type="CheckBox" parent="HBoxContainer/VBoxContainer/question"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_vbbjm")
+text = "B"
+
+[node name="C" type="CheckBox" parent="HBoxContainer/VBoxContainer/question"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_vbbjm")
+text = "C"
+
+[node name="D" type="CheckBox" parent="HBoxContainer/VBoxContainer/question"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_vbbjm")
+text = "D"
+
+[node name="explain" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/question"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+bbcode_enabled = true
+text = "HI
+
+"
+fit_content = true
+
+[node name="control" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="prev_problem" type="Button" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "上一題"
+
+[node name="next_problem" type="Button" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "下一題"
+
+[node name="RED_tip" type="Button" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_hn0xd")
+toggle_mode = true
+text = "紅"
+
+[node name="GREEN_tip" type="Button" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_3768q")
+toggle_mode = true
+text = "綠"
+
+[node name="BLUE_tip" type="Button" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_xfxtn")
+toggle_mode = true
+text = "藍"
+
+[node name="finish" type="Button" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "回到選擇畫面"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ReferenceRect" type="ReferenceRect" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 135.0
+offset_top = 195.0
+offset_right = -135.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[node name="Result" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 133.0
+offset_top = 195.0
+offset_right = -137.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Result"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="S" type="HBoxContainer" parent="Result"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="L" type="Label" parent="Result/S"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "HI"
+horizontal_alignment = 2
+
+[node name="P" type="ProgressBar" parent="Result/S"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="Result/S"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="Result"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/Test_info/View_stat" to="." method="_on_view_stat_toggled"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/control/prev_problem" to="." method="_on_prev_problem_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/control/next_problem" to="." method="_on_next_problem_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/control/finish" to="." method="_on_finish_pressed"]
+[connection signal="item_selected" from="HBoxContainer/VBoxContainer/control/OptionButton" to="." method="_on_option_button_item_selected"]

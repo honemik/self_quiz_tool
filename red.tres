@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://04tg7db14obd"]
+
+[sub_resource type="Gradient" id="Gradient_1h5pr"]
+offsets = PackedFloat32Array(0, 0.993485)
+colors = PackedColorArray(0.421025, 0.169506, 0.0204529, 1, 0.658109, 0.00620162, 0.233762, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cvxmc"]
+gradient = SubResource("Gradient_1h5pr")
+fill_from = Vector2(0, 0.700855)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d1u1f"]
+texture = SubResource("GradientTexture2D_cvxmc")
+
+[sub_resource type="Gradient" id="Gradient_cc87k"]
+offsets = PackedFloat32Array(0, 0.993485)
+colors = PackedColorArray(1, 0.337255, 0.27451, 1, 0.976471, 0.654902, 0.67451, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_40q5n"]
+gradient = SubResource("Gradient_cc87k")
+fill_from = Vector2(0, 0.435897)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gmr8i"]
+texture = SubResource("GradientTexture2D_40q5n")
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxTexture_d1u1f")
+Button/styles/normal = SubResource("StyleBoxTexture_d1u1f")
+Button/styles/pressed = SubResource("StyleBoxTexture_gmr8i")

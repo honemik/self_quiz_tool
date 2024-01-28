@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://d0pdympk7k04l"]
+
+[sub_resource type="Gradient" id="Gradient_wg1fm"]
+colors = PackedColorArray(0, 0.596985, 0.278785, 1, 0.45098, 0.298039, 0.372549, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7c7a4"]
+gradient = SubResource("Gradient_wg1fm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x7skd"]
+texture = SubResource("GradientTexture2D_7c7a4")
+
+[sub_resource type="Gradient" id="Gradient_5uxhs"]
+colors = PackedColorArray(0.254902, 1, 0.564706, 1, 0.690805, 0.650892, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kbwxa"]
+gradient = SubResource("Gradient_5uxhs")
+fill_to = Vector2(0.995726, 0.495726)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b2qnt"]
+texture = SubResource("GradientTexture2D_kbwxa")
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxTexture_x7skd")
+Button/styles/normal = SubResource("StyleBoxTexture_x7skd")
+Button/styles/pressed = SubResource("StyleBoxTexture_b2qnt")
