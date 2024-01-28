@@ -67,7 +67,8 @@ func _on_confirm_pressed():
 					temp_count = temp_count +1
 	print("準備考試.....")
 	print(prepared_test)
-	prepared_test.shuffle()
+	if $HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/random_problem.button_pressed == false:
+		prepared_test.shuffle()
 	Quizdatabase.current_question_list = prepared_test
 	for i in T:
 		i.queue_free()

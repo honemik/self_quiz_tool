@@ -18,6 +18,7 @@ func _process(delta):
 func _on_selecting_adding():
 	$Selecting.visible = false
 	$Editing.visible = true
+	Quizdatabase.clearquiz()
 	$Editing.update_name()
 	$Editing.current_problem = -1
 	$Editing._on_add_question_pressed()
@@ -27,6 +28,7 @@ func _on_selecting_editing(select):
 	$Selecting.visible = false
 	$Editing.visible = true
 	Quizdatabase.load_quiz(select)
+	$Editing.current_problem = 0
 	$Editing.load_problem(0)
 	$Editing.update_select()
 	$Editing.update_name()
@@ -42,6 +44,7 @@ func _on_selecting_testing(selected_text):
 func _on_editing_selecting():
 	$Editing.visible = false
 	$Selecting.visible = true
+	Quizdatabase.clearquiz()
 	$Selecting.update_item()
 	
 
@@ -59,6 +62,7 @@ func _on_quizing_finish():
 
 func _on_review_finish_review():
 	$review.visible = false
+	Quizdatabase.clearquiz()
 	$Selecting.visible = true
 	
 

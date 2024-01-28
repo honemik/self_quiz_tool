@@ -12,6 +12,7 @@ var VT :=[]
 var total :=0
 var current :=0
 
+
 signal finish_review
 
 func _ready():
@@ -38,17 +39,17 @@ func load_problem(index):
 	sync_stat()
 	
 func sync_stat():
-			
-	if Quizdatabase.check_ans(current,quizing.ran_a[1]) != (quizing.ran_a[quizing.ans[current]]==1) :
-		$HBoxContainer/VBoxContainer/question/A.disabled = true
-	if Quizdatabase.check_ans(current,quizing.ran_a[2]) != (quizing.ran_a[quizing.ans[current]]==2):
-		$HBoxContainer/VBoxContainer/question/B.disabled = true
-	if Quizdatabase.check_ans(current,quizing.ran_a[3]) != (quizing.ran_a[quizing.ans[current]]==3) :
-		$HBoxContainer/VBoxContainer/question/C.disabled = true
-	if Quizdatabase.check_ans(current,quizing.ran_a[4]) != (quizing.ran_a[quizing.ans[current]]==4) :
-		$HBoxContainer/VBoxContainer/question/D.disabled = true
 	
-	match quizing.ran_a[quizing.ans[current]]:
+	if Quizdatabase.check_ans(current,quizing.ran_a[1]) != (quizing.ran_a.find(quizing.ans[current])==1):
+		$HBoxContainer/VBoxContainer/question/A.disabled = true
+	if Quizdatabase.check_ans(current,quizing.ran_a[2]) != (quizing.ran_a.find(quizing.ans[current])==2):
+		$HBoxContainer/VBoxContainer/question/B.disabled = true
+	if Quizdatabase.check_ans(current,quizing.ran_a[3]) != (quizing.ran_a.find(quizing.ans[current])==3):
+		$HBoxContainer/VBoxContainer/question/C.disabled = true
+	if Quizdatabase.check_ans(current,quizing.ran_a[4]) != (quizing.ran_a.find(quizing.ans[current])==4):
+		$HBoxContainer/VBoxContainer/question/D.disabled = true
+		
+	match quizing.ran_a.find(quizing.ans[current]):
 		0:
 			$HBoxContainer/VBoxContainer/question/A.button_pressed = false
 			$HBoxContainer/VBoxContainer/question/B.button_pressed = false
@@ -99,6 +100,7 @@ func sync_stat():
 		
 
 func init_review():
+	
 	print("review_init...")
 	$HBoxContainer/VBoxContainer/Test_info/time.text = "經過時間: " + quizing.millisecondsToHMS(quizing.time_finish - quizing.time_elap)
 	$HBoxContainer/VBoxContainer/Test_info/count.text = "全部題目: " + str(Quizdatabase.current_question_list.size())
@@ -106,15 +108,16 @@ func init_review():
 	optionb.clear()
 	right_count.resize(create.tags.size())
 	right_count.fill(0)
+	right_all = 0
 	for i in range(0,Quizdatabase.current_question_list.size()):
 		if Quizdatabase.check_ans(i,quizing.ans[i]):
 			for j in Quizdatabase.current_question_list[i]["tag"]:
 				right_count[create.tag2index(j)] +=1
 			optionb.add_item(str(i+1) + ": "+ quizing.mark2emoji(2))
+			right_all +=1
 		else:
 			optionb.add_item(str(i+1) + ": "+ quizing.mark2emoji(1))
 	for i in range(0,right_count.size()):
-		right_all+=right_count[i]
 		VT.append(container.duplicate())
 		container.add_sibling(VT[i])
 		VT[i].visible = true

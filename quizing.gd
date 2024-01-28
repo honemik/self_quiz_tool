@@ -46,7 +46,7 @@ func load_problem(index):
 	sync_stat()
 
 func sync_stat():
-	match ran_a[ans[current]]:
+	match ran_a.find(ans[current]):
 		0:
 			$HBoxContainer/VBoxContainer/question/A.button_pressed = false
 			$HBoxContainer/VBoxContainer/question/B.button_pressed = false
@@ -103,9 +103,11 @@ func init_test():
 	marking.resize(total)
 	marking.fill(0)
 	ran_a = [1,2,3,4]
-	ran_a.shuffle()
+	var rand_option = get_node("../CreateQuiz/HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/random_option")
+	if rand_option.button_pressed == false:
+		ran_a.shuffle()
+		print("隨機亂數.....")
 	ran_a.push_front(0)
-	print("隨機亂數.....")
 	print(ran_a)
 	$HBoxContainer/VBoxContainer/Test_info/count.text = "總共題數: " + str(total)
 	$HBoxContainer/VBoxContainer/Test_info/answered.text = "目前題目: " + str(current+1)
@@ -117,66 +119,73 @@ func init_test():
 
 func _on_a_toggled(toggled_on):
 	if toggled_on:
-		ans[current] = ran_a.find(1)
+		ans[current] = ran_a[1]
+		sync_stat()
 	else:
-		if ans[current] == 1:
+		if ans[current] == ran_a[1]:
 			ans[current] = 0
-	sync_stat()
+			sync_stat()
+	
 
 
 func _on_b_toggled(toggled_on):
 	if toggled_on:
-		ans[current] = ran_a.find(2)
+		ans[current] = ran_a[2]
+		sync_stat()
 	else:
-		if ans[current] == ran_a.find(2):
+		if ans[current] == ran_a[2]:
 			ans[current] = 0
-	sync_stat()
+			sync_stat()
 
 
 func _on_c_toggled(toggled_on):
 	if toggled_on:
-		ans[current] = ran_a.find(3)
+		ans[current] = ran_a[3]
+		sync_stat()
 	else:
-		if ans[current] == ran_a.find(3):
+		if ans[current] == ran_a[3]:
 			ans[current] = 0
-	sync_stat()
+			sync_stat()
 
 
 func _on_d_toggled(toggled_on):
 	if toggled_on:
-		ans[current] = ran_a.find(4)
+		ans[current] = ran_a[4]
+		sync_stat()
 	else:
-		if ans[current] ==  ran_a.find(4):
+		if ans[current] ==  ran_a[4]:
 			ans[current] = 0
-	sync_stat()
+			sync_stat()
 
 
 func _on_red_tip_toggled(toggled_on):
 	if toggled_on:
 		marking[current] = 1
+		sync_stat()
 	else:
 		if marking[current] == 1:
 			marking[current] = 0
-	sync_stat()
+			sync_stat()
 
 
 func _on_green_tip_toggled(toggled_on):
 	if toggled_on:
 		marking[current] = 2
+		sync_stat()
 	else:
 		if marking[current] == 2:
 			marking[current] = 0
-	sync_stat()
+			sync_stat()
 
 
 func _on_blue_tip_toggled(toggled_on):
 	if toggled_on:
 		marking[current] = 3
+		sync_stat()
 	else:
 		if marking[current] == 3:
 			marking[current] = 0
-	sync_stat()
-
+			sync_stat()
 
 func _on_next_problem_pressed():
 	if current + 1 < total:

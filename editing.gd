@@ -29,10 +29,15 @@ func load_problem(index):
 	$VBoxContainer/HBoxContainer/VBoxContainer2/explain.text = $VBoxContainer/HBoxContainer/VBoxContainer/explain.text
 	$VBoxContainer/HBoxContainer/VBoxContainer2/tag.text = $VBoxContainer/HBoxContainer/VBoxContainer/Tag.text
 	
-	$VBoxContainer/HBoxContainer/VBoxContainer2/A.button_pressed = bool(Quizdatabase.current_question_list[index]["Ar"])
-	$VBoxContainer/HBoxContainer/VBoxContainer2/B.button_pressed = bool(Quizdatabase.current_question_list[index]["Br"])
-	$VBoxContainer/HBoxContainer/VBoxContainer2/C.button_pressed = bool(Quizdatabase.current_question_list[index]["Cr"])
-	$VBoxContainer/HBoxContainer/VBoxContainer2/D.button_pressed = bool(Quizdatabase.current_question_list[index]["Dr"])
+	
+	var ar = bool(Quizdatabase.current_question_list[index]["Ar"])
+	var br = bool(Quizdatabase.current_question_list[index]["Br"])
+	var cr = bool(Quizdatabase.current_question_list[index]["Cr"])
+	var dr = bool(Quizdatabase.current_question_list[index]["Dr"])
+	$VBoxContainer/HBoxContainer/VBoxContainer2/A.button_pressed = ar
+	$VBoxContainer/HBoxContainer/VBoxContainer2/B.button_pressed = br
+	$VBoxContainer/HBoxContainer/VBoxContainer2/C.button_pressed = cr
+	$VBoxContainer/HBoxContainer/VBoxContainer2/D.button_pressed = dr
 	
 	
 	
@@ -51,7 +56,7 @@ func update_select():
 	$VBoxContainer/HBoxContainer2/select_problem.clear()
 	
 	for i in range(0,Quizdatabase.current_question_list.size()):
-		$VBoxContainer/HBoxContainer2/select_problem.add_item(str(i),i)
+		$VBoxContainer/HBoxContainer2/select_problem.add_item(str(i+1),i)
 
 func update_name():
 	$VBoxContainer/HBoxContainer2/DATABASENAME.text = Quizdatabase.current_question_name
@@ -100,7 +105,7 @@ func _on_prev_question_pressed():
 
 func _on_next_question_pressed():
 	if current_problem+1 < Quizdatabase.current_question_list.size():
-		current_problem = current_problem+1
+		current_problem +=1
 		load_problem(current_problem)
 	$VBoxContainer/HBoxContainer2/select_problem.select(current_problem)
 
@@ -140,7 +145,6 @@ func _on_del_question_pressed():
 
 func _on_select_problem_item_selected(index):
 	current_problem = index
-	print(current_problem)
 	load_problem(current_problem)
 
 
@@ -161,10 +165,8 @@ func _on_a_toggled(toggled_on):
 func _on_b_toggled(toggled_on):
 	Quizdatabase.current_question_list[current_problem]["Br"] = int(toggled_on)
 
-
 func _on_c_toggled(toggled_on):
 	Quizdatabase.current_question_list[current_problem]["Cr"] = int(toggled_on)
-
 
 func _on_d_toggled(toggled_on):
 	Quizdatabase.current_question_list[current_problem]["Dr"] = int(toggled_on)

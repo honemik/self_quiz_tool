@@ -22,9 +22,6 @@ script = ExtResource("1_8368i")
 
 [node name="Editing" parent="." instance=ExtResource("1_wd76q")]
 visible = false
-
-[node name="Control" parent="." instance=ExtResource("2_tsitw")]
-visible = false
 layout_mode = 1
 
 [node name="Selecting" parent="." instance=ExtResource("3_fuw2q")]

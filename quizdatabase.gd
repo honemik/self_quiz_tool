@@ -22,6 +22,7 @@ func read_json(filename:String):
 	var open_err = FileAccess.open(data_path+filename+".json", FileAccess.READ)
 	var json_object = JSON.new()
 	var parse_err = json_object.parse(open_err.get_as_text())
+	open_err.close()
 	return json_object.get_data()
 	
 
@@ -69,6 +70,8 @@ func save_quiz():
 	if quizlist.has(current_question_name) == false:
 		quizlist.append(current_question_name)
 		print("update list: " + current_question_name)
+		save_quizlist()
+	
 	
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
@@ -94,3 +97,9 @@ func check_ans(index,value):
 		return bool(current_question_list[index]["Cr"])
 	elif value == 4:
 		return bool(current_question_list[index]["Dr"])
+
+func clearquiz():
+	current_question_list.clear()
+	prepared_test.clear()
+	current_question_name = "a"
+	
