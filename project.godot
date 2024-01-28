@@ -1,0 +1,31 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="self_quiz_tool"
+run/main_scene="res://panel.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+config/icon="res://hm.png"
+config/macos_native_icon="res://hm.icns"
+config/windows_native_icon="res://hm.ico"
+
+[autoload]
+
+Quizdatabase="*res://quizdatabase.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[rendering]
+
+renderer/rendering_method="mobile"

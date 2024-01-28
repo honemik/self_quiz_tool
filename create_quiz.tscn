@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://bibjx3pmhr56f"]
+
+[ext_resource type="Script" path="res://create_quiz.gd" id="1_6v482"]
+[ext_resource type="Script" path="res://V.gd" id="2_bk8mc"]
+
+[node name="CreateQuiz" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6v482")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.88
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.09
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="H" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="T" type="Label" parent="HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "時間(分鐘)"
+
+[node name="S" type="HSlider" parent="HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 6.21
+max_value = 360.0
+value = 120.0
+
+[node name="V" type="Label" parent="HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_bk8mc")
+
+[node name="confirm" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "開始測驗"
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ReferenceRect" type="ReferenceRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer/H/S" to="HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer/H/V" method="_on_s_value_changed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/confirm" to="." method="_on_confirm_pressed"]

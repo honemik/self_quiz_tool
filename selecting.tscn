@@ -1,0 +1,101 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbro15uqpebhp"]
+
+[ext_resource type="Script" path="res://selecting.gd" id="1_xo4dk"]
+
+[node name="Selecting" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xo4dk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 11.51
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 11.3
+
+[node name="ItemList" type="ItemList" parent="VBoxContainer/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+select_mode = 1
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ADDING" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "新增"
+
+[node name="EDITING" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "編輯"
+
+[node name="DELETING" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "刪除"
+
+[node name="TESTING" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "測驗"
+
+[node name="editpath" type="LineEdit" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "D:\\\\Code\\\\self_quiz_tool\\\\quiz\\\\"
+placeholder_text = "PATH"
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/ADDING" to="." method="_on_adding_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/EDITING" to="." method="_on_editing_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/DELETING" to="." method="_on_deleting_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/TESTING" to="." method="_on_testing_pressed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer2/editpath" to="." method="_on_editpath_text_changed"]

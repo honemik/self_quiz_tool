@@ -1,0 +1,40 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cah8h1v3ndmi8"]
+
+[sub_resource type="Gradient" id="Gradient_rt7ge"]
+colors = PackedColorArray(0.299969, 0.664259, 0.430678, 1, 0.8, 0.752941, 0.870588, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_erlwx"]
+gradient = SubResource("Gradient_rt7ge")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8l3jg"]
+texture = SubResource("GradientTexture1D_erlwx")
+
+[sub_resource type="Gradient" id="Gradient_2g8xx"]
+colors = PackedColorArray(0, 0, 0, 1, 0.237539, 0.237539, 0.237539, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2s8wu"]
+gradient = SubResource("Gradient_2g8xx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5fng"]
+texture = SubResource("GradientTexture1D_2s8wu")
+
+[sub_resource type="Gradient" id="Gradient_q3372"]
+colors = PackedColorArray(1, 1, 1, 1, 0.893699, 0.785243, 0.770179, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hs5ti"]
+gradient = SubResource("Gradient_q3372")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d2g5h"]
+texture = SubResource("GradientTexture1D_hs5ti")
+
+[resource]
+CheckBox/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
+CheckBox/colors/font_disabled_color = Color(0, 0, 0, 1)
+CheckBox/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+CheckBox/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+CheckBox/colors/font_pressed_color = Color(0, 0, 0, 1)
+CheckBox/styles/disabled = SubResource("StyleBoxTexture_8l3jg")
+CheckBox/styles/hover = SubResource("StyleBoxTexture_n5fng")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxTexture_d2g5h")
+CheckBox/styles/normal = SubResource("StyleBoxTexture_n5fng")
+CheckBox/styles/pressed = SubResource("StyleBoxTexture_d2g5h")

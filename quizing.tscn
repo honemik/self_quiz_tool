@@ -1,0 +1,210 @@
+[gd_scene load_steps=10 format=3 uid="uid://b87chxl7cn5qn"]
+
+[ext_resource type="Theme" uid="uid://cah8h1v3ndmi8" path="res://optioncheck.tres" id="1_ga4pd"]
+[ext_resource type="Script" path="res://quizing.gd" id="1_wqdm5"]
+[ext_resource type="Theme" uid="uid://04tg7db14obd" path="res://red.tres" id="3_fa3hh"]
+[ext_resource type="Theme" uid="uid://d0pdympk7k04l" path="res://green.tres" id="4_5icid"]
+[ext_resource type="Theme" uid="uid://3chyfdxrrieq" path="res://blue.tres" id="5_m2o5p"]
+
+[sub_resource type="Gradient" id="Gradient_favs2"]
+offsets = PackedFloat32Array(0, 0.517915, 1)
+colors = PackedColorArray(0.0901961, 0, 0, 1, 0.233549, 0.201796, 0.222366, 1, 0.258647, 0.278888, 0.314569, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5a43e"]
+gradient = SubResource("Gradient_favs2")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nq4cy"]
+texture = SubResource("GradientTexture2D_5a43e")
+
+[sub_resource type="Theme" id="Theme_lxhn7"]
+ItemList/styles/panel = SubResource("StyleBoxTexture_nq4cy")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqdm5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 12.09
+alignment = 1
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Test_info" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="count" type="Label" parent="HBoxContainer/VBoxContainer/Test_info"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "總共題數: "
+
+[node name="answered" type="Label" parent="HBoxContainer/VBoxContainer/Test_info"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "已做答題數: "
+
+[node name="unanswered" type="Label" parent="HBoxContainer/VBoxContainer/Test_info"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "未做答題數"
+
+[node name="time" type="Label" parent="HBoxContainer/VBoxContainer/Test_info"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "經過時間"
+
+[node name="View_stat" type="Button" parent="HBoxContainer/VBoxContainer/Test_info"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "看狀態"
+
+[node name="question" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer/question"]
+layout_mode = 2
+
+[node name="problem" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/question"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+bbcode_enabled = true
+text = "HI
+
+"
+fit_content = true
+
+[node name="A" type="CheckBox" parent="HBoxContainer/VBoxContainer/question"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_ga4pd")
+text = "A"
+
+[node name="B" type="CheckBox" parent="HBoxContainer/VBoxContainer/question"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_ga4pd")
+text = "B"
+
+[node name="C" type="CheckBox" parent="HBoxContainer/VBoxContainer/question"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_ga4pd")
+text = "C"
+
+[node name="D" type="CheckBox" parent="HBoxContainer/VBoxContainer/question"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_ga4pd")
+text = "D"
+
+[node name="control" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="prev_problem" type="Button" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "上一題"
+
+[node name="next_problem" type="Button" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "下一題"
+
+[node name="RED_tip" type="Button" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_fa3hh")
+toggle_mode = true
+text = "紅"
+
+[node name="GREEN_tip" type="Button" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_5icid")
+toggle_mode = true
+text = "綠"
+
+[node name="BLUE_tip" type="Button" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_m2o5p")
+toggle_mode = true
+text = "藍"
+
+[node name="finish" type="Button" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "完成"
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="HBoxContainer/VBoxContainer/control"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ReferenceRect" type="ReferenceRect" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ItemList" type="ItemList" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 139.0
+offset_top = 74.0
+offset_right = 1781.0
+offset_bottom = 1006.0
+theme = SubResource("Theme_lxhn7")
+auto_height = true
+max_columns = 5
+same_column_width = true
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Test_info/View_stat" to="." method="_on_view_stat_pressed"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/question/A" to="." method="_on_a_toggled"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/question/B" to="." method="_on_b_toggled"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/question/C" to="." method="_on_c_toggled"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/question/D" to="." method="_on_d_toggled"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/control/prev_problem" to="." method="_on_prev_problem_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/control/next_problem" to="." method="_on_next_problem_pressed"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/control/RED_tip" to="." method="_on_red_tip_toggled"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/control/GREEN_tip" to="." method="_on_green_tip_toggled"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/control/BLUE_tip" to="." method="_on_blue_tip_toggled"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/control/finish" to="." method="_on_finish_pressed"]
+[connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
